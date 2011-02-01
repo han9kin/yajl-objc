@@ -1,7 +1,7 @@
 
 default:
-	xcodebuild -target "YAJLIPhone (Simulator)" -configuration Release build
-	xcodebuild -target "YAJLIPhone (Device)" -configuration Release build
+	xcodebuild -target "YAJLIPhone (Simulator)" -configuration Release clean build
+	xcodebuild -target "YAJLIPhone (Device)" -configuration Release clean build
 	BUILD_DIR="build" BUILD_STYLE="Release" sh ../Scripts/CombineLibs.sh
 	sh ../Scripts/iPhoneFramework.sh
 
