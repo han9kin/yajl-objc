@@ -735,7 +735,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#cd .. && make docs";
+			shellScript = "cd .. && make docs";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

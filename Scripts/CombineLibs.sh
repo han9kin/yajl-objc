@@ -11,7 +11,7 @@ OUTPUT_FILE=${NAME}${FLAVOR}.a
 ZIP_DIR=${BUILD_DIR}/Zip
 
 if [ ! -d ${OUTPUT_DIR} ]; then
-	mkdir -p ${OUTPUT_DIR}
+	mkdir ${OUTPUT_DIR}
 fi
 
 # Combine lib files
