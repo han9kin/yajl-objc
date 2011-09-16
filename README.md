@@ -15,6 +15,60 @@ The YAJL framework is an Objective-C framework for the [YAJL](http://lloyd.githu
 
 - The online [API documentation](http://gabriel.github.com/yajl-objc/).
 
+## Installing in XCode 4 (Mac OS X)
+
+- Copy `YAJL.framework` to your project directory (maybe in MyProject/Frameworks/.)
+- Add the `YAJL.framework` files (from MyProject/Frameworks/) to your target.
+- In Build Settings, add `@loader_path/../Frameworks` to `Runpath Search Paths`. If you don't see `Runpath Search Paths` make sure `All` is selected instead of 'Basic'.
+- In Build Phases, select `Add Build Phase`, then `Add Copy Files`.
+  - Change the Destination to `Frameworks`.
+  - Drag `YAJL.framework` into the the build phase
+  - Make sure the copy phase appears before any `Run Script` phases
+- Import with `#import <YAJL/YAJL.h>`.
+- See the [API documenation](http://gabriel.github.com/yajl-objc/)
+
+## Installing in XCode 3 (Mac OS X)
+
+- Copy `YAJL.framework` to your project directory (maybe in MyProject/Frameworks/.)
+- Add the `YAJL.framework` files (from MyProject/Frameworks/) to your target. It should be visible as a `Linked Framework` in the target. 
+- Under Build Settings, add `@loader_path/../Frameworks` to `Runpath Search Paths` 
+- Add `New Build Phase` | `New Copy Files Build Phase`. 
+	- Change the Destination to `Frameworks`.
+	- Drag `YAJL.framework` into the the build phase
+	- Make sure the copy phase appears before any `Run Script` phases 
+
+## Installing in XCode 4 (iOS)
+
+- Add `YAJLiOS.framework` to your project.
+- In `Build Phases`, make sure its listed in `Link Binary With Libraries`, along with:
+  - `CoreGraphics.framework`
+  - `Foundation.framework`
+  - `UIKit.framework`
+- In `Build Settings`:
+  - Under `Framework Search Paths` make sure the (parent) directory to `YAJLiOS.framework` is listed.
+  - Under `Other Linker Flags` in your target, add `-ObjC` and `-all_load`
+- Import with `#import <YAJL/YAJL.h>`.
+- See the [API documenation](http://gabriel.github.com/yajl-objc/)
+
+## Installing in XCode 3 (iOS)
+
+- Add `YAJLiOS.framework` to your project.
+- Add the frameworks to `Linked Libraries`:
+  - `YAJLiOS.framework`
+  - `CoreGraphics.framework`
+  - `Foundation.framework`
+  - `UIKit.framework`
+- Under `Framework Search Paths` make sure the (parent) directory to `YAJLiOS.framework` is listed.
+- Under `Other Linker Flags` in your target, add `-ObjC` and `-all_load`
+- Import with `#import "YAJLiOS/YAJL.h"`.
+
+## Apps
+
+YAJL framework is used by:
+
+- [Yelp for iPhone/iPad](http://itunes.apple.com/us/app/yelp/id284910350?mt=8)
+- Add your app here!
+
 ## Docset
 
 Download and copy the YAJL.docset to `~/Library/Developer/Shared/Documentation/DocSets/YAJL.docset`
@@ -24,38 +78,6 @@ Download and copy the YAJL.docset to `~/Library/Developer/Shared/Documentation/D
 The documentation will appear within XCode:
 
 ![YAJL-Docset](http://rel.me.s3.amazonaws.com/yajl/images/docset.png)
-
-## Install (Mac OS X)
-
-There are two options. You can install it globally in /Library/Frameworks or with a little extra effort embed it with your project.
-
-### Installing in /Library/Frameworks
-
-- Copy `YAJL.framework` to `/Library/Frameworks/`
-- In the target Info window, General tab:
-	- Add a linked library, under `Mac OS X 10.5 SDK` section, select `YAJL.framework`
-
-### Installing in your project
-
-- Copy `YAJL.framework` to your project directory (maybe in MyProject/Frameworks/.)
-- Add the `YAJL.framekwork` files (from MyProject/Frameworks/) to your target. It should be visible as a `Linked Framework` in the target. 
-- Under Build Settings, add `@loader_path/../Frameworks` to `Runpath Search Paths` 
-- Add `New Build Phase` | `New Copy Files Build Phase`. 
-	- Change the Destination to `Frameworks`.
-	- Drag `YAJL.framework` into the the build phase
-	- Make sure the copy phase appears before any `Run Script` phases 
-
-## Install (iOS)
-
-- Add `YAJL.framework` to your project.
-- Add the frameworks to `Linked Libraries`:
-  - `YAJL.framework`
-  - `CoreGraphics.framework`
-  - `Foundation.framework`
-  - `UIKit.framework`
-- Under `Framework Search Paths` make sure the (parent) directory to `YAJL.framework` is listed.
-- Under `Other Linker Flags` in your target, add `-ObjC` and `-all_load`
-
 
 
 
